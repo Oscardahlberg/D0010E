@@ -14,7 +14,7 @@ public class Room {
 
     }
     public void connectSouthTo(Room r) {
-
+        System.out.println("Hej");
     }
     public void connectWestTo(Room r) {
 
