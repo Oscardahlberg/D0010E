@@ -40,8 +40,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2862" />
-    <option name="y" value="78" />
+    <option name="x" value="318" />
+    <option name="y" value="50" />
     <option name="width" value="1400" />
     <option name="height" value="872" />
   </component>
@@ -59,6 +59,17 @@
             <path>
               <item name="Labb2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Labb2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Labb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Labb2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Labb2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Labb2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="level" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -138,15 +149,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580302148504</updated>
-      <workItem from="1580302150972" duration="1965000" />
+      <workItem from="1580302150972" duration="3311000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1965000" />
+    <option name="totallyTimeSpent" value="3311000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2862" y="78" width="1400" height="872" extended-state="0" />
+    <frame x="318" y="50" width="1400" height="872" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
