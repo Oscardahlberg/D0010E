@@ -11,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Room.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lab2/level/Room.java">
@@ -21,6 +22,14 @@
                 <element signature="e#254#255#0" expanded="true" />
                 <element signature="e#295#296#0" expanded="true" />
               </folding>
+=======
+    <leaf>
+      <file leaf-file-name="Room.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lab2/level/Room.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
             </state>
           </provider>
         </entry>
@@ -34,6 +43,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -41,6 +51,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
@@ -51,8 +63,13 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="80" />
     <option name="y" value="104" />
+=======
+    <option name="x" value="2862" />
+    <option name="y" value="78" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     <option name="width" value="1400" />
     <option name="height" value="872" />
   </component>
@@ -61,6 +78,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -72,9 +95,12 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+=======
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -149,12 +175,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580302148504</updated>
+<<<<<<< HEAD
       <workItem from="1580302150972" duration="4138000" />
       <workItem from="1580424786100" duration="59000" />
+=======
+      <workItem from="1580302150972" duration="1965000" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="4197000" />
   </component>
   <component name="ToolWindowManager">
@@ -187,6 +218,40 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+=======
+    <option name="totallyTimeSpent" value="1965000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="2862" y="78" width="1400" height="872" extended-state="0" />
+    <layout>
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Database" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +268,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/lab2/level/Room.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="272">
           <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding>
@@ -220,6 +286,10 @@
             <element signature="e#254#255#0" expanded="true" />
             <element signature="e#295#296#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
         </state>
       </provider>
     </entry>

@@ -1,5 +1,6 @@
 package lab2.level;
 
+<<<<<<< HEAD
 import java.awt.Color;
 
 public class Room {
@@ -19,4 +20,7 @@ public class Room {
     public void connectWestTo(Room r) {
 
     }
+=======
+public class Room {
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
 }

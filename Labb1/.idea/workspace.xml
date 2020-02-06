@@ -15,8 +15,13 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="425">
               <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+=======
+            <state relative-caret-position="153">
+              <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
               <folding>
                 <element signature="e#60#61#0" expanded="true" />
                 <element signature="e#113#114#0" expanded="true" />
@@ -28,8 +33,13 @@
       <file leaf-file-name="LifeLength.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LifeLength.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="493">
               <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+=======
+            <state relative-caret-position="140">
+              <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
               <folding>
                 <element signature="e#327#328#0" expanded="true" />
                 <element signature="e#360#361#0" expanded="true" />
@@ -50,7 +60,11 @@
         <entry file="file://$PROJECT_DIR$/src/Raise.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="631">
+<<<<<<< HEAD
               <caret line="41" selection-start-line="41" selection-end-line="41" />
+=======
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
             </state>
           </provider>
         </entry>
@@ -93,8 +107,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="AndroidView" />
+=======
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -111,7 +131,10 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,12 +245,19 @@
       <workItem from="1579863475288" duration="1453000" />
       <workItem from="1580055503620" duration="934000" />
       <workItem from="1580211653344" duration="6563000" />
+<<<<<<< HEAD
       <workItem from="1580425299324" duration="21000" />
+=======
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="44767000" />
+=======
+    <option name="totallyTimeSpent" value="44746000" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
   </component>
   <component name="ToolWindowManager">
     <frame x="338" y="72" width="1400" height="981" extended-state="0" />
@@ -235,6 +265,10 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
+=======
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32943678" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -260,7 +294,10 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32943678" />
+=======
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +314,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="425">
           <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
           <folding>
@@ -314,6 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+=======
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
         <state relative-caret-position="459">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
@@ -544,8 +584,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="425">
           <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+=======
+        <state relative-caret-position="153">
+          <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
           <folding>
             <element signature="e#60#61#0" expanded="true" />
             <element signature="e#113#114#0" expanded="true" />
@@ -555,8 +600,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LifeLength.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="493">
           <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+=======
+        <state relative-caret-position="140">
+          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
           <folding>
             <element signature="e#327#328#0" expanded="true" />
             <element signature="e#360#361#0" expanded="true" />
@@ -575,7 +625,11 @@
     <entry file="file://$PROJECT_DIR$/src/Raise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="631">
+<<<<<<< HEAD
           <caret line="41" selection-start-line="41" selection-end-line="41" />
+=======
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+>>>>>>> f31b0275ea7d170114c3cebeed303c07aa69d7db
         </state>
       </provider>
     </entry>
