@@ -76,7 +76,10 @@ public class GameGrid extends Observable{
      * @return true if player has 5 in row, false otherwise
      */
     public boolean isWinner(int player){
-
+        if(horizontalWin(player) || verticalWin(player) || diagonalDownWin(player) || diagonalUpWin(player)){
+            return true;
+        }
+        return false;
     }
 
     private boolean horizontalWin(int player){
@@ -123,9 +126,20 @@ public class GameGrid extends Observable{
         for(int i = 0; i < getSize(); i++){
             for(int y = 0; y < getSize(); y++){
                 for(int n = 0; n < getSize(); n ++){
-                    if(grid[y][n] == player){
-                        inARowCount += 1;
+                    try{
+                        if(grid[i + n][y + n] == player){
+                            inARowCount += 1;
+                        }
+                        else {
+                            inARowCount = 0;
+                        }
+                        if(inARowCount == INROW){
+                            return true;
+                        }
+                    } catch (StackOverflowError e){
+                        break;
                     }
+
                 }
             }
         }
