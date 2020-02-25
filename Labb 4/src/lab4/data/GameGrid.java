@@ -1,6 +1,8 @@
 package lab4.data;
 
 import javax.xml.bind.annotation.XmlType;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Observable;
 
 /**
@@ -15,13 +17,50 @@ public class GameGrid extends Observable{
     public static final int OTHER = 2;
     public static final int INROW = 5;
 
-    private int[][] grid;
+    public int[][] grid;
 
     /**
      * Constructor
      *
-     * @param size The width/height of the game grid
+     * @param //size The width/height of the game grid
      */
+
+    public static void main(String[] args) {
+        GameGrid g1 = new GameGrid(10);
+        
+        //snett ner
+//        g1.move(0, 0, ME);
+//        g1.move(1, 1, ME);
+//        g1.move(2, 2, ME);
+//        g1.move(3, 3, ME);
+//        g1.move(4, 4, ME);
+        
+        //raktNer
+        
+//        g1.move(0, 0, ME);
+//        g1.move(0, 1, ME);
+//        g1.move(0, 2, OTHER);
+//        g1.move(0, 3, ME);
+//        g1.move(0, 4, ME);
+//        g1.move(0, 5, ME);
+//        g1.move(0, 6, ME);
+//        g1.move(0, 7, ME);
+
+        
+//        g1.move(5, 3, ME);
+//        g1.move(5, 4, OTHER);
+//        g1.move(5, 5, ME);
+//        g1.move(5, 6, ME);
+//        g1.move(5, 7, ME);
+
+        for(int i[] : g1.grid){
+            System.out.println(Arrays.toString(i));
+        }
+        
+        System.out.println(g1.isWinner(ME));
+
+    }
+
     public GameGrid(int size){
         this.grid = new int[size][size];
     }
@@ -33,7 +72,9 @@ public class GameGrid extends Observable{
      * @param y The y coordinate
      * @return the value of the specified location
      */
-    public int getLocation(int x, int y){}
+    public int getLocation(int x, int y){
+        return grid[x][y];
+    }
 
     /**
      * Returns the size of the grid
@@ -88,7 +129,8 @@ public class GameGrid extends Observable{
         for(int[] i : grid){
             for(int y : i){
 
-                if(i[y] == player){
+                if(y == player){
+                	
                     inARowCount += 1;
                 }
                 else {
@@ -136,7 +178,8 @@ public class GameGrid extends Observable{
                         if(inARowCount == INROW){
                             return true;
                         }
-                    } catch (StackOverflowError e){
+                    } catch (ArrayIndexOutOfBoundsException e){
+                        inARowCount = 0;
                         break;
                     }
 
@@ -147,7 +190,28 @@ public class GameGrid extends Observable{
         return false;
     }
     private boolean diagonalUpWin(int player){
+        int inARowCount = 0;
 
+        for(int y = 0; y < getSize(); y++){
+            for(int x = 0; x < getSize(); x++){
+                for(int n = 0; n < getSize(); n ++){
+                    try{
+                        if(grid[y - n][x + n] == player){
+                            inARowCount += 1;
+                        }
+                        else {
+                            inARowCount = 0;
+                        }
+                        if(inARowCount == INROW){
+                            return true;
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e){
+                        inARowCount = 0;
+                        break;
+                    }
+                }
+            }
+        }
+        return false;
     }
-
 }

@@ -17,7 +17,7 @@ import lab4.data.GameGrid;
 public class GamePanel extends JPanel implements Observer{
 
     private final int UNIT_SIZE = 20;
-    private GameGrid grid;
+    public GameGrid grid;
 
     /**
      * The constructor
@@ -65,7 +65,11 @@ public class GamePanel extends JPanel implements Observer{
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
+        
+        for(int y = 0; y < grid.getSize(); y++) {
+        	for(int x = 0; x < grid.getSize(); x++) {
+        		g.drawRect(x*UNIT_SIZE, y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+        	}
+        }
     }
-
 }
