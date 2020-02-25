@@ -19,10 +19,8 @@ import lab4.data.GomokuGameState;
  */
 
 public class GomokuGUI implements Observer{
-	
-	//våra variabler
+
 	private JFrame frame;
-	private GamePanel gameGridPanel;
 	private JLabel messageLabel;
 	private JPanel panel;
 	
@@ -30,6 +28,7 @@ public class GomokuGUI implements Observer{
 	private JButton newGameButton;
 	private JButton disconnectButton;
 
+    private GamePanel gameGridPanel;
     private GomokuClient client;
     private GomokuGameState gamestate;
 
@@ -60,7 +59,9 @@ public class GomokuGUI implements Observer{
         gameGridPanel.addMouseListener(new MouseAdapter(){
         	public void mouseClicked(MouseEvent e){
         		int[] gridPosition = gameGridPanel.getGridPosition(e.getX(), e.getY());
+
         		gamestate.move(gridPosition[0], gridPosition[1]);
+                gameGridPanel.grid = gamestate.getGameGrid();
         	}
         });
         
@@ -80,6 +81,7 @@ public class GomokuGUI implements Observer{
 			}
         	
         });
+
         this.disconnectButton.addActionListener(new ActionListener() {
 
 			@Override

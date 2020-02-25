@@ -1,6 +1,6 @@
 package lab4.data;
 
-import javax.xml.bind.annotation.XmlType;
+//import javax.xml.bind.annotation.XmlType;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Observable;
@@ -34,7 +34,7 @@ public class GameGrid extends Observable{
 //        g1.move(2, 2, ME);
 //        g1.move(3, 3, ME);
 //        g1.move(4, 4, ME);
-        
+
         //raktNer
         
 //        g1.move(0, 0, ME);
@@ -61,7 +61,7 @@ public class GameGrid extends Observable{
 
     }
 
-    public GameGrid(int size){
+    GameGrid(int size){
         this.grid = new int[size][size];
     }
 

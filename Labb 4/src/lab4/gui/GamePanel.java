@@ -8,7 +8,9 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import lab4.client.GomokuClient;
 import lab4.data.GameGrid;
+import lab4.data.GomokuGameState;
 
 /**
  * A panel providing a graphical view of the game board
@@ -55,30 +57,28 @@ public class GamePanel extends JPanel implements Observer{
         g.setColor(Color.lightGray);
         g.fillRect(0, 0, grid.getSize() * UNIT_SIZE, grid.getSize() * UNIT_SIZE);
         
-        g.setColor(Color.BLACK);
+        g.setColor(Color.black);
         for(int y = 0; y < grid.getSize(); y++) {
         	for(int x = 0; x < grid.getSize(); x++) {
         		g.drawRect(x*UNIT_SIZE, y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
         	}
         }
-        
-        
-        
-       for(int y = 0; y < grid.getSize(); y++) {
-    	   for(int x = 0; x < grid.getSize(); x++) {
-    		   if(grid.getLocation(x, y) == 1) {
-    			   System.out.println("Gör cirkel");
-    			   g.setColor(Color.black);
-    			   g.fillOval(x * UNIT_SIZE, y * UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
-    		   }
-    		   if(grid.getLocation(x, y) == GameGrid.OTHER) {
-    			   System.out.println("Gör cirkel");
-    			   g.setColor(Color.white);
-    			   g.fillOval(x * UNIT_SIZE, y * UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
-    			   
-    		   }
-    	   }
-       }
+
+        for(int y = 0; y < grid.getSize(); y++) {
+    	    for(int x = 0; x < grid.getSize(); x++) {
+    		    if(grid.getLocation(x, y) == 1) {
+    			    System.out.println("Gör cirkel");
+    			    g.setColor(Color.black);
+    			    g.fillOval(x * UNIT_SIZE, y * UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+    		    }
+    		    if(grid.getLocation(x, y) == GameGrid.OTHER) {
+    			    System.out.println("Gör cirkel");
+    			    g.setColor(Color.white);
+    			    g.fillOval(x * UNIT_SIZE, y * UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+
+    		    }
+    	    }
+        }
         
     }
 }
