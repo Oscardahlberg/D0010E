@@ -69,7 +69,9 @@ public class GomokuGameState extends Observable implements Observer{
      * @param y the y coordinate
      */
     public void move(int x, int y){
+    	System.out.println(currentState);
         if(currentState == MY_TURN){
+        	
             if(gameGrid.move(x, y, MY_TURN)){
                 client.sendMoveMessage(x, y);
                 message = "I have occupied x: " + x + ", y: " + y;
@@ -77,16 +79,19 @@ public class GomokuGameState extends Observable implements Observer{
                 if(gameGrid.isWinner(currentState)){
                     message = "I have won the game";
                     currentState = FINISHED;
+                } else {
+                	currentState = OTHER_TURN;
                 }
             }
             else{
                 message = "Space is occupied";
             }
         }
-        else{
-            if(currentState == 0){
-                message = "Game has not started";
-            }
+        else if(currentState == 0){
+            message = "Game has not started";
+        }
+        else if(currentState == 2) {
+        	message = "It is your opponents turn";
         }
         setChanged();
         notifyObservers();
@@ -149,8 +154,15 @@ public class GomokuGameState extends Observable implements Observer{
      * @param y The y coordinate of the move
      */
     public void receivedMove(int x, int y){
+    	
         gameGrid.move(x, y, OTHER_TURN);
-        gameGrid.isWinner(OTHER_TURN);
+        if(gameGrid.isWinner(OTHER_TURN)) {
+        	currentState = 3;
+        	message = "Your opponent has won";
+        } else {
+        	currentState = MY_TURN;
+        	message = "It is your turn";
+        }
 
         setChanged();
         notifyObservers();

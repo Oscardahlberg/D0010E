@@ -73,7 +73,7 @@ public class GameGrid extends Observable{
      * @return the value of the specified location
      */
     public int getLocation(int x, int y){
-        return grid[x][y];
+        return grid[y][x];
     }
 
     /**
@@ -94,6 +94,7 @@ public class GameGrid extends Observable{
      * @return true if the insertion worked, false otherwise
      */
     public boolean move(int x, int y, int player){
+    	System.out.println(x + ":x, y:" + y);
         if(grid[y][x] == EMPTY){
             grid[y][x] = player;
             return true;

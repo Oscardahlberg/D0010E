@@ -39,6 +39,7 @@ public class GomokuGUI implements Observer{
      * @param g   The game state that the GUI will visualize
      * @param c   The client that is responsible for the communication
      */
+    
     public GomokuGUI(GomokuGameState g, GomokuClient c){
         this.client = c;
         this.gamestate = g;
@@ -58,7 +59,7 @@ public class GomokuGUI implements Observer{
         
         gameGridPanel.addMouseListener(new MouseAdapter(){
         	public void mouseClicked(MouseEvent e){
-        		int[] gridPosition = gameGridPanel.getGridPosition(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
+        		int[] gridPosition = gameGridPanel.getGridPosition(e.getX(), e.getY());
         		gamestate.move(gridPosition[0], gridPosition[1]);
         	}
         });
@@ -93,10 +94,15 @@ public class GomokuGUI implements Observer{
         panel.add(newGameButton);
         panel.add(disconnectButton);
         
+        messageLabel = new JLabel();
+        messageLabel.setText("Welcome to Gomoku!");
+        panel.add(messageLabel);
+        
 
-		frame.setLayout(new FlowLayout(FlowLayout.TRAILING));
+		//frame.setLayout(new FlowLayout(FlowLayout.TRAILING));
+		
 		frame.pack();
-        frame.setSize(325, 500);
+        frame.setSize(325, 450);
         frame.add(panel);
         frame.setVisible(true);
     }

@@ -42,21 +42,7 @@ public class GamePanel extends JPanel implements Observer{
      * @return an integer array containing the [x, y] grid position
      */
     public int[] getGridPosition(int x, int y){
-        int xCoord = x;
-        int yCoord = y;
-        int xIndex = 0;
-        int yIndex = 0;
-
-        while(xCoord > UNIT_SIZE){
-            xCoord -= UNIT_SIZE;
-            xIndex += 1;
-        }
-        while(yCoord > UNIT_SIZE){
-            yCoord -= UNIT_SIZE;
-            yIndex += 1;
-        }
-
-        return new int[]{xIndex, yIndex};
+        return new int[]{x / UNIT_SIZE, y / UNIT_SIZE};
     }
 
     public void update(Observable arg0, Object arg1) {
@@ -66,10 +52,33 @@ public class GamePanel extends JPanel implements Observer{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         
+        g.setColor(Color.lightGray);
+        g.fillRect(0, 0, grid.getSize() * UNIT_SIZE, grid.getSize() * UNIT_SIZE);
+        
+        g.setColor(Color.BLACK);
         for(int y = 0; y < grid.getSize(); y++) {
         	for(int x = 0; x < grid.getSize(); x++) {
         		g.drawRect(x*UNIT_SIZE, y*UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
         	}
         }
+        
+        
+        
+       for(int y = 0; y < grid.getSize(); y++) {
+    	   for(int x = 0; x < grid.getSize(); x++) {
+    		   if(grid.getLocation(x, y) == 1) {
+    			   System.out.println("Gör cirkel");
+    			   g.setColor(Color.black);
+    			   g.fillOval(x * UNIT_SIZE, y * UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+    		   }
+    		   if(grid.getLocation(x, y) == GameGrid.OTHER) {
+    			   System.out.println("Gör cirkel");
+    			   g.setColor(Color.white);
+    			   g.fillOval(x * UNIT_SIZE, y * UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+    			   
+    		   }
+    	   }
+       }
+        
     }
 }
