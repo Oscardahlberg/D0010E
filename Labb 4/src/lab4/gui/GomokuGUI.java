@@ -129,6 +129,7 @@ public class GomokuGUI implements Observer{
         if(arg0 == gamestate){
             messageLabel.setText(gamestate.getMessageString());
         }
+        gameGridPanel.update(arg0, arg1);
 
     }
 

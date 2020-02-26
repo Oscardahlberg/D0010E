@@ -12,7 +12,7 @@ public class GomokoMain {
             client = new GomokuClient(Integer.parseInt(args[0]));
         }
         else{
-            client = new GomokuClient(4123);
+            client = new GomokuClient(4124);
         }
 
         GomokuGameState gameState = new GomokuGameState(client);

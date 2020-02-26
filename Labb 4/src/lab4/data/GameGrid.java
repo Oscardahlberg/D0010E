@@ -118,10 +118,7 @@ public class GameGrid extends Observable{
      * @return true if player has 5 in row, false otherwise
      */
     public boolean isWinner(int player){
-        if(horizontalWin(player) || verticalWin(player) || diagonalDownWin(player) || diagonalUpWin(player)){
-            return true;
-        }
-        return false;
+        return horizontalWin(player) || verticalWin(player) || diagonalDownWin(player) || diagonalUpWin(player);
     }
 
     private boolean horizontalWin(int player){
