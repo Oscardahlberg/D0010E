@@ -149,6 +149,7 @@ public class GomokuGameState extends Observable implements Observer{
     	gameGrid.clearGrid();
         currentState = NOT_STARTED;
         message = "You have disconnected";
+        client.disconnect();
 
         setChanged();
         notifyObservers();
@@ -161,7 +162,6 @@ public class GomokuGameState extends Observable implements Observer{
      * @param y The y coordinate of the move
      */
     public void receivedMove(int x, int y){
-    	
         gameGrid.move(x, y, OTHER_TURN);
         if(gameGrid.isWinner(OTHER_TURN)) {
         	currentState = 3;

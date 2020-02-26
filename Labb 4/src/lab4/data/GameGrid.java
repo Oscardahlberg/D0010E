@@ -104,12 +104,10 @@ public class GameGrid extends Observable{
      */
     private boolean horizontalWin(int player){
 
-        for(int[] i : grid){
+    	for(int x = 0; x < getSize(); x++){
         	int inARowCount = 0;
-            for(int y : i){
-
-                if(y == player){
-                	
+            for(int y = 0; y < getSize(); y++){
+                if(grid[x][y] == player){
                     inARowCount += 1;
                 }
                 else {
@@ -119,7 +117,6 @@ public class GameGrid extends Observable{
                     return true;
                 }
             }
-
         }
         return false;
     }
@@ -164,7 +161,6 @@ public class GameGrid extends Observable{
     */
     private boolean diagonalDownWin(int player){
         
-
         for(int x = 0; x < getSize(); x++){
         	int inARowCount = 0;
             for(int y = 0; y < getSize(); y++){
@@ -190,10 +186,22 @@ public class GameGrid extends Observable{
 
         return false;
     }
+    
+    /**
+    *
+    *kollar om player har vunnit snett upp åt höger(/).
+    *
+    *det looparna gör är att den tar ett x värde i taget och
+    *går igenom för varje y värde och kollar diagonalt uppåt
+    *om det finns tillräckligt med kulor i rad för att vinna.
+    *
+    *den går till nästa y värde och resetar inARowCount om den någon gång får
+    *ett ArrayIndexOutOfBoundsException Error.
+    */
     private boolean diagonalUpWin(int player){
-        int inARowCount = 0;
 
         for(int y = 0; y < getSize(); y++){
+        	int inARowCount = 0;
             for(int x = 0; x < getSize(); x++){
                 for(int n = 0; n < getSize(); n ++){
                     try{

@@ -13,6 +13,12 @@ import lab4.data.GameGrid;
 import lab4.data.GomokuGameState;
 
 /**
+ *  @author Shahriar Chegini och Oscar Dahlberg
+ *  
+ *  här ritas ut brädan för spelet. 
+ */
+
+/**
  * A panel providing a graphical view of the game board
  */
 
@@ -54,9 +60,11 @@ public class GamePanel extends JPanel implements Observer{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         
+        // ritar ut färgen på brädan 
         g.setColor(Color.lightGray);
         g.fillRect(0, 0, grid.getSize() * UNIT_SIZE, grid.getSize() * UNIT_SIZE);
         
+        //ritar ut linjerna med hjälp av många rektanglar som sitter ihop
         g.setColor(Color.black);
         for(int y = 0; y < grid.getSize(); y++) {
         	for(int x = 0; x < grid.getSize(); x++) {
@@ -64,6 +72,7 @@ public class GamePanel extends JPanel implements Observer{
         	}
         }
 
+        //går igenom grid och ritar kulor på varje plats det är en spelare 
         for(int y = 0; y < grid.getSize(); y++) {
     	    for(int x = 0; x < grid.getSize(); x++) {
     		    if(grid.getLocation(x, y) == 1) {

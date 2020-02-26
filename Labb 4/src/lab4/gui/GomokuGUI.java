@@ -14,6 +14,12 @@ import lab4.client.GomokuClient;
 import lab4.data.GameGrid;
 import lab4.data.GomokuGameState;
 
+/**
+ *  @author Shahriar Chegini och Oscar Dahlberg
+ *  
+ *  här ritas ut fönstret och alla knappar till spelet.
+ */
+
 /*
  * The GUI class
  */
@@ -40,6 +46,7 @@ public class GomokuGUI implements Observer{
      */
     
     public GomokuGUI(GomokuGameState g, GomokuClient c){
+    	
         this.client = c;
         this.gamestate = g;
         client.addObserver(this);
@@ -50,16 +57,20 @@ public class GomokuGUI implements Observer{
         
         panel = new JPanel();
         
+        //knapparna
         connectButton = new JButton("connect");
         newGameButton = new JButton("New game");
         disconnectButton = new JButton("Disconnect");
         
         gameGridPanel = new GamePanel(gamestate.getGameGrid());
         
+        //anonyma klass som körs varje gång någon klickar på fönstret
         gameGridPanel.addMouseListener(new MouseAdapter(){
         	public void mouseClicked(MouseEvent e){
+        		//hämtar korrekt index för positionen där man klickar.
         		int[] gridPosition = gameGridPanel.getGridPosition(e.getX(), e.getY());
 
+        		//sätter ut en kula där man klickar 
         		gamestate.move(gridPosition[0], gridPosition[1]);
                 gameGridPanel.grid = gamestate.getGameGrid();
         	}
@@ -68,6 +79,7 @@ public class GomokuGUI implements Observer{
         this.connectButton.addActionListener(new ActionListener() {
 
 			@Override
+			//tilldelar knappen connect
 			public void actionPerformed(ActionEvent arg0) {
 				ConnectionWindow connectWin = new ConnectionWindow(c);
 			}
@@ -76,6 +88,7 @@ public class GomokuGUI implements Observer{
         this.newGameButton.addActionListener(new ActionListener() {
 
 			@Override
+			//tilldelar knappen newGame
 			public void actionPerformed(ActionEvent arg0) {
 				gamestate.newGame();
 			}
@@ -85,6 +98,7 @@ public class GomokuGUI implements Observer{
         this.disconnectButton.addActionListener(new ActionListener() {
 
 			@Override
+			//tilldelar knappen disconnect
 			public void actionPerformed(ActionEvent arg0) {
 				gamestate.disconnect();
 			}
@@ -99,9 +113,6 @@ public class GomokuGUI implements Observer{
         messageLabel = new JLabel();
         messageLabel.setText("Welcome to Gomoku!");
         panel.add(messageLabel);
-        
-
-		//frame.setLayout(new FlowLayout(FlowLayout.TRAILING));
 		
 		frame.pack();
         frame.setSize(325, 450);
@@ -132,5 +143,4 @@ public class GomokuGUI implements Observer{
         gameGridPanel.update(arg0, arg1);
 
     }
-
 }
