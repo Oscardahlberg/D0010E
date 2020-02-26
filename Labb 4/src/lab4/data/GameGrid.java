@@ -93,21 +93,21 @@ public class GameGrid extends Observable{
     }
 
     /**
-     *
-     *horizontalWin kollar om någon har tillräckligt med kulor i rad för att vinna
-     *
-     *det for looparna gör är att den tar en index i taget för varje array i den 
-     *2 dim. arrayen grid och sedan håller reda på hur många kulor ligger i rad för spelaren.
-     *
-     *Om den kommer till ett index där det inte ligger något eller till en motståndares kula
-     *så resetar inARowCount.
-     */
+    *
+    *HorizontalWin kollar om någon har tillräckligt med kulor i rad för att vinna
+    *
+    *det looparna gör är att den kollar ett y värde i taget, och går igenom sidledes  
+    *för varje y värde. Och kollar om det är tillräckligt med kulor i rad
+    *för att vinna
+    *
+    */
+    
     private boolean horizontalWin(int player){
 
-    	for(int x = 0; x < getSize(); x++){
+    	for(int y = 0; y < getSize(); y++){
         	int inARowCount = 0;
-            for(int y = 0; y < getSize(); y++){
-                if(grid[x][y] == player){
+            for(int x = 0; x < getSize(); x++){
+                if(grid[y][x] == player){
                     inARowCount += 1;
                 }
                 else {
@@ -200,12 +200,12 @@ public class GameGrid extends Observable{
     */
     private boolean diagonalUpWin(int player){
 
-        for(int y = 0; y < getSize(); y++){
+        for(int x = 0; x < getSize(); x++){
         	int inARowCount = 0;
-            for(int x = 0; x < getSize(); x++){
+            for(int y = 0; y < getSize(); y++){
                 for(int n = 0; n < getSize(); n ++){
                     try{
-                        if(grid[y - n][x + n] == player){
+                        if(grid[x - n][y + n] == player){
                             inARowCount += 1;
                         }
                         else {
