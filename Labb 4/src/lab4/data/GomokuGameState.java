@@ -4,6 +4,14 @@
 package lab4.data;
 
 import java.util.Observable;
+
+/**
+ * @author Shahriar Chegini och Oscar Dahlberg
+ * 
+ * här kollar vi spelets kondition, ifall den är 
+ * started, vems tur det är, osv. 
+ * 
+ */
 import java.util.Observer;
 
 import lab4.client.GomokuClient;
@@ -69,7 +77,6 @@ public class GomokuGameState extends Observable implements Observer{
      * @param y the y coordinate
      */
     public void move(int x, int y){
-    	System.out.println(currentState);
         if(currentState == MY_TURN){
         	
             if(gameGrid.move(x, y, MY_TURN)){
@@ -100,7 +107,7 @@ public class GomokuGameState extends Observable implements Observer{
      * Starts a new game with the current client
      */
     public void newGame(){
-        gameGrid = new GameGrid(DEFAULT_SIZE);
+    	gameGrid.clearGrid();
         currentState = OTHER_TURN;
         message = "New game has started, it is your opponets turn";
         client.sendNewGameMessage();
@@ -114,7 +121,7 @@ public class GomokuGameState extends Observable implements Observer{
      * game state is changed accordingly
      */
     public void receivedNewGame(){
-        gameGrid = new GameGrid(DEFAULT_SIZE);
+        gameGrid.clearGrid();
         currentState = MY_TURN;
         message = "New game has started, it is your turn";
 
@@ -127,7 +134,7 @@ public class GomokuGameState extends Observable implements Observer{
      * so the game is interrupted
      */
     public void otherGuyLeft(){
-        gameGrid = new GameGrid(DEFAULT_SIZE);
+    	gameGrid.clearGrid();
         currentState = NOT_STARTED;
         message = "Your opponent has disconnected";
 
@@ -139,7 +146,7 @@ public class GomokuGameState extends Observable implements Observer{
      * The player disconnects from the client
      */
     public void disconnect(){
-        gameGrid = new GameGrid(DEFAULT_SIZE);
+    	gameGrid.clearGrid();
         currentState = NOT_STARTED;
         message = "You have disconnected";
 
@@ -185,5 +192,4 @@ public class GomokuGameState extends Observable implements Observer{
         notifyObservers();
 
     }
-
 }

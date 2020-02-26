@@ -1,12 +1,20 @@
 package lab4.data;
 
-//import javax.xml.bind.annotation.XmlType;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Observable;
 
 /**
  * Represents the 2-d game grid
+ */
+
+/**
+ * 
+ * @author Shahriar Chegini och Oscar Dahlberg
+ * 
+ * här skapar vi själva brädan för spelet och 
+ * kollar om någon har vunnit
+ *
  */
 
 
@@ -24,42 +32,6 @@ public class GameGrid extends Observable{
      *
      * @param //size The width/height of the game grid
      */
-
-    public static void main(String[] args) {
-        GameGrid g1 = new GameGrid(10);
-        
-        //snett ner
-//        g1.move(0, 0, ME);
-//        g1.move(1, 1, ME);
-//        g1.move(2, 2, ME);
-//        g1.move(3, 3, ME);
-//        g1.move(4, 4, ME);
-
-        //raktNer
-        
-//        g1.move(0, 0, ME);
-//        g1.move(0, 1, ME);
-//        g1.move(0, 2, OTHER);
-//        g1.move(0, 3, ME);
-//        g1.move(0, 4, ME);
-//        g1.move(0, 5, ME);
-//        g1.move(0, 6, ME);
-//        g1.move(0, 7, ME);
-
-        
-//        g1.move(5, 3, ME);
-//        g1.move(5, 4, OTHER);
-//        g1.move(5, 5, ME);
-//        g1.move(5, 6, ME);
-//        g1.move(5, 7, ME);
-
-        for(int i[] : g1.grid){
-            System.out.println(Arrays.toString(i));
-        }
-        
-        System.out.println(g1.isWinner(ME));
-
-    }
 
     GameGrid(int size){
         this.grid = new int[size][size];
@@ -94,7 +66,6 @@ public class GameGrid extends Observable{
      * @return true if the insertion worked, false otherwise
      */
     public boolean move(int x, int y, int player){
-    	System.out.println(x + ":x, y:" + y);
         if(grid[y][x] == EMPTY){
             grid[y][x] = player;
             return true;
@@ -121,10 +92,20 @@ public class GameGrid extends Observable{
         return horizontalWin(player) || verticalWin(player) || diagonalDownWin(player) || diagonalUpWin(player);
     }
 
+    /**
+     *
+     *horizontalWin kollar om någon har tillräckligt med kulor i rad för att vinna
+     *
+     *det for looparna gör är att den tar en index i taget för varje array i den 
+     *2 dim. arrayen grid och sedan håller reda på hur många kulor ligger i rad för spelaren.
+     *
+     *Om den kommer till ett index där det inte ligger något eller till en motståndares kula
+     *så resetar inARowCount.
+     */
     private boolean horizontalWin(int player){
-        int inARowCount = 0;
 
         for(int[] i : grid){
+        	int inARowCount = 0;
             for(int y : i){
 
                 if(y == player){
@@ -142,12 +123,21 @@ public class GameGrid extends Observable{
         }
         return false;
     }
+    
+    /**
+    *
+    *VerticalWin kollar om någon har tillräckligt med kulor i rad för att vinna
+    *
+    *det looparna gör är att den kollar en x värde i taget, och går igenom uppifrån  
+    *och ner för varje x värde. Och kollar om det är tillräckligt med kulor i rad
+    *för att vinna
+    */
     private boolean verticalWin(int player){
-        int inARowCount = 0;
-
-        for(int i = 0; i < getSize(); i++){
+       
+        for(int x = 0; x < getSize(); x++){
+        	int inARowCount = 0;
             for(int y = 0; y < getSize(); y++){
-                if(grid[y][i] == player){
+                if(grid[y][x] == player){
                     inARowCount += 1;
                 }
                 else {
@@ -160,14 +150,27 @@ public class GameGrid extends Observable{
         }
         return false;
     }
+    
+    /**
+    *
+    *kollar om player har vunnit snett ner åt höger(\).
+    *
+    *det looparna gör är att den tar ett x värde i taget och
+    *går igenom för varje y värde och kollar diagonalt
+    *om det finns tillräckligt med kulor i rad för att vinna.
+    *
+    *den går till nästa y värde och resetar inARowCount om den någon gång får
+    *ett ArrayIndexOutOfBoundsException Error.
+    */
     private boolean diagonalDownWin(int player){
-        int inARowCount = 0;
+        
 
-        for(int i = 0; i < getSize(); i++){
+        for(int x = 0; x < getSize(); x++){
+        	int inARowCount = 0;
             for(int y = 0; y < getSize(); y++){
                 for(int n = 0; n < getSize(); n ++){
                     try{
-                        if(grid[i + n][y + n] == player){
+                        if(grid[x + n][y + n] == player){
                             inARowCount += 1;
                         }
                         else {
