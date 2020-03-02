@@ -91,10 +91,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="55" />
-    <option name="y" value="-25" />
-    <option name="width" value="1400" />
-    <option name="height" value="862" />
+    <option name="x" value="-9" />
+    <option name="width" value="1169" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -253,12 +252,12 @@
       <workItem from="1582710676724" duration="1305000" />
       <workItem from="1583151591704" duration="20000" />
       <workItem from="1583151620552" duration="25000" />
-      <workItem from="1583151694302" duration="642000" />
+      <workItem from="1583151694302" duration="831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12046000" />
+    <option name="totallyTimeSpent" value="12235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
