@@ -8,6 +8,7 @@ abstract public class Event
    
    abstract public void doMe();
    abstract public double getTime(); 
+   abstract public String getName();
    abstract public Customer getCustomer();
    
    public Event(State state, EventQueue eventQueue) 

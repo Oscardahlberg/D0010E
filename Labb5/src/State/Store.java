@@ -26,6 +26,7 @@ public class Store
    private double registerFreeTime;
    private double customerQueueTime;
    private int totalCustomersInQueue;
+   private double lastPaymentTime;
    
    public Store(int maxCustomers, int registers, double closingTime)
    {
@@ -101,7 +102,7 @@ public class Store
    {
       if(!isOpen)
       {
-         customer.setState(CustomerState.notInStore);
+         customer.setState(CustomerState.lateCustomer);
       }
       else if(getCustomersInStore() < maxCustomers)
       {
@@ -141,7 +142,15 @@ public class Store
    
    public int getTotalCustomers()
    {
-      return customers.size();
+      int numberOfCustomers = 0;
+      for(int index = 0; index < customers.size(); index++)
+      {
+         if(customers.get(index).getState() != CustomerState.lateCustomer)
+         {
+            numberOfCustomers += 1;
+         }
+      }
+      return numberOfCustomers;
    }
    
    public void addCoin()
@@ -186,6 +195,22 @@ public class Store
    public void addTotalCustomersInQueue()
    {
       totalCustomersInQueue += 1;
+   }
+
+   /**
+    * @return the lastPaymentTime
+    */
+   public double getLastPaymentTime()
+   {
+      return lastPaymentTime;
+   }
+
+   /**
+    * @param lastPaymentTime the lastPaymentTime to set
+    */
+   public void setLastPaymentTime(double lastPaymentTime)
+   {
+      this.lastPaymentTime = lastPaymentTime;
    }
    
 }

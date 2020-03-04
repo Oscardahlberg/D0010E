@@ -17,6 +17,7 @@ public class Close extends Event
    public void doMe() 
    {
       state.update(this);
+      
       state.getStore().setIsOpen(false);
    }
 
@@ -29,5 +30,12 @@ public class Close extends Event
    public Customer getCustomer()
    {
       return null;
+   }
+
+   @Override
+   public String getName()
+   {
+      // TODO Auto-generated method stub
+      return "Close";
    }
 }

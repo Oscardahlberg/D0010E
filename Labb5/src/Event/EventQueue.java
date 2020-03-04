@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public class EventQueue 
 {
-   ArrayList<Event> eventList = new ArrayList<Event>();
+   private ArrayList<Event> eventList = new ArrayList<Event>();
    
    public static void main(String[] args) 
    {
       EventQueue q = new EventQueue();
       
+   }
+   
+   public int size()
+   {
+      return eventList.size();
    }
    
    public Event getFirst() 

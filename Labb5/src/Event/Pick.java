@@ -67,4 +67,11 @@ public class Pick extends Event
    {
       return customer;
    }
+
+   @Override
+   public String getName()
+   {
+      // TODO Auto-generated method stub
+      return "Pick";
+   }
 }

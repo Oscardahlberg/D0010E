@@ -8,5 +8,5 @@ package State;
  *
  */
 public enum CustomerState {
-   inStore, notInStore, turnedAway
+   inStore, notInStore, turnedAway, lateCustomer
 }

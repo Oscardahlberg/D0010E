@@ -46,4 +46,11 @@ public class Start extends Event
       // TODO Auto-generated method stub
       return null;
    }
+
+   @Override
+   public String getName()
+   {
+      // TODO Auto-generated method stub
+      return "Start";
+   }
 }

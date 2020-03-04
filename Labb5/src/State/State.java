@@ -100,6 +100,20 @@ public class State extends Observable
                (timeBetweenEvent() * store.getFreeRegisters()));
          store.setCustomerQueueTime(store.getCustomerQueueTime() +
                (timeBetweenEvent() * store.getFIFOQueue().size()));
+         
+         if(thisEvent.getClass() == Pay.class)
+         {
+            store.setLastPaymentTime(thisEvent.getTime());
+         }
+         
+      }else
+      {
+//         System.out.println(store.getRegisterFreeTime());
+//         System.out.println(store.getLastPaymentTime());
+//         System.out.println(lastEventTime);
+         store.setRegisterFreeTime(store.getRegisterFreeTime() 
+               - ((lastEventTime - store.getLastPaymentTime()) 
+                     * store.getFreeRegisters()));
       }
      
       setChanged();

@@ -1,3 +1,4 @@
+  
 package View;
 
 import Event.*;
@@ -10,10 +11,9 @@ public class PrintView extends View
    private State state;
    private Store store;
 
-   public PrintView(EventQueue eventQueue, State state, Store store)
+   public PrintView(State state, Store store)
    {
-      state.addObserver(this);
-
+      super(state, store);
       this.state = state;
       this.store = store;
    }
@@ -31,36 +31,73 @@ public class PrintView extends View
       System.out.println("");
       System.out.println("FÖRLOPP");
       System.out.println("=======");
-      System.out.println("Tid\tHändelse\tKund\t?\tled\tledT\tI\t$\t:-(\tköat\tköT\tköar\t[Kassakö..]");
+      System.out.println("Tid\tHändelse\tKund\tÖ\tled\tledT\tI\t$\t:-(\tköat\tköT\tköar\t[Kassakö..]");
+     
    }
 
-   public void lastPrint()
+   private void lastPrint()
    {
+      System.out.println("");
       System.out.println("RESULTAT");
       System.out.println("========");
       System.out.println("");
-      System.out.println("1) Av " + store.getTotalCustomers() + " handlade " + store.getCoinMade() + " medan "
-            + store.getCustomersTurnedAway() + " missade.");
+      System.out.println("1) Av " +
+              store.getTotalCustomers() + " handlade " +
+              store.getCoinMade() + " medan " +
+              store.getCustomersTurnedAway() + " missade.");
       System.out.println("");
-      System.out.println("2) Total tid " + store.getRegisters() + " kassor varit lediga:" + " "
-            + store.getRegisterFreeTime() + " te.");
-      System.out.println("\tGenomsnittlig ledig kassatid: " + store.getRegisterFreeTime() / store.getRegisters()
-            + " te (dvs " + store.getClosingTime() / store.getRegisterFreeTime() + "% av tiden från öppning "
-            + "tills sista kunden betalat).");
+      System.out.println("2) Total tid " +
+              store.getRegisters() + " kassor varit lediga: " +
+              formatNumber(store.getRegisterFreeTime()) + " te.");
+      System.out.println("\tGenomsnittlig ledig kassatid: " +
+              formatNumber(store.getRegisterFreeTime() / store.getRegisters()) + " te (dvs " +
+              formatNumber((store.getRegisterFreeTime() / store.getRegisters()) / (store.getLastPaymentTime()) * 100) + "% av tiden från" +
+              " öppning tills sista kunden betalat).");
       System.out.println("");
-      System.out.println("3) Total tid " + store.getTotalCustomersInQueue() + " kunder tvingats köa: "
-            + store.getCustomerQueueTime() + " te.");
-      System.out.println(
-            "\tGenomsnittlig kötid: " + store.getCustomerQueueTime() / store.getTotalCustomersInQueue() + " te.");
+      System.out.println("3) Total tid " +
+              store.getTotalCustomersInQueue() + " kunder tvingats köa: " +
+              formatNumber(store.getCustomerQueueTime()) + " te.");
+      System.out.println("\tGenomsnittlig kötid: " +
+              formatNumber(store.getCustomerQueueTime() / store.getTotalCustomersInQueue()) + " te.");
    }
 
    private void printEvent()
    {
-      System.out.println(state.getCurrentTime() + "\t" + state.getCurrentEvent() + "\t\t" + state.getCurrentCustomer()
-            + "\t" + store.getIsOpen() + "\t" + store.getFreeRegisters() + "\t" + store.getRegisterFreeTime()
-            + "\t" + store.getCustomersInStore() + "\t" + store.getCoinMade() + "\t"
-            + store.getCustomersTurnedAway() + "\t" + store.getTotalCustomersInQueue() + "\t" + store.getCustomerQueueTime()
-            + "\t" + store.getFIFOQueue().size() + "\t" + store.getFIFOQueue() + "\t");
+
+       String formatCurrEvent = "" + state.getCurrentEvent().getName();
+       if(formatCurrEvent.length() < 4){
+           formatCurrEvent = formatCurrEvent + " ";
+       }
+
+       String checkCustomerNull = "" + state.getCurrentCustomer();
+       if(checkCustomerNull.equals("null")){
+           checkCustomerNull = " ";
+       }
+
+      System.out.println(
+              formatNumber(state.getCurrentTime()) + "\t" +
+              formatCurrEvent + "\t\t" +
+              checkCustomerNull + "\t" +
+              store.getIsOpen() + "\t" +
+              store.getFreeRegisters() + "\t" +
+              formatNumber(store.getRegisterFreeTime()) + "\t" +
+              store.getCustomersInStore() + "\t" +
+              store.getCoinMade() + "\t" +
+              store.getCustomersTurnedAway() + "\t" +
+              store.getTotalCustomersInQueue() + "\t" +
+              formatNumber(store.getCustomerQueueTime()) + "\t" +
+              store.getFIFOQueue().size() + "\t" +
+              store.getFIFOQueue());
+   }
+
+   private String formatNumber(double time){
+
+       String correctTime = "" + (Math.round(time * 100.0) / 100.0);
+       if(correctTime.length() < 4){
+           correctTime = correctTime + "0";
+       }
+
+       return correctTime;
    }
 
    @Override
@@ -69,10 +106,10 @@ public class PrintView extends View
       if (state.getCurrentEvent().getClass() == Start.class)
       {
          firstPrint();
-         printEvent();
+         System.out.println(state.getCurrentTime() + "\tStart");
       } else if (state.getCurrentEvent().getClass() == Stop.class)
       {
-         printEvent();
+         System.out.println(formatNumber(state.getCurrentTime()) + "\tStop");
          lastPrint();
       } else
       {
