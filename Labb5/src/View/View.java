@@ -4,9 +4,11 @@ package View;
 import java.util.Observable;
 import java.util.Observer;
 
-public interface View extends Observer {
+public class View implements Observer {
 
     @Override
-    void update(Observable o, Object arg);
+    public void update(Observable o, Object arg) {
+
+    }
 
 }
