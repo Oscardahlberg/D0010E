@@ -3,6 +3,15 @@ package Event;
 import State.Customer;
 import State.State;
 
+/**
+ * 
+ * Tells the simulation to stop.
+ * Will allways be the last event in eventQeueu
+ * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
+ *
+ */
+
 public class Stop extends Event
 {
    private double time;  
@@ -24,17 +33,13 @@ public class Stop extends Event
       return time;
    }
 
-   @Override
    public Customer getCustomer()
    {
-      // TODO Auto-generated method stub
       return null;
    }
 
-   @Override
    public String getName()
    {
-      // TODO Auto-generated method stub
       return "Stop";
    }
 }
