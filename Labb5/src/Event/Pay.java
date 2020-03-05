@@ -3,62 +3,69 @@ package Event;
 import State.*;
 
 /**
- * In this event, no new event will be created and the costumer will be removed.
- * The store will get paid with one coin.
- * If there is a queue it will be reduced by one.
+ * The pick event will create a queue if all checkouts are busy. 
+ * Otherwise it will create the pay event.
  * 
- * @authorJesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
- * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
+ *
  */
 
-public class Pay extends Event
+public class Pick extends Event
 {
    private Customer customer;
+   private Pay payEvent;
+  
    private double time;
    
-   public Pay(State state, EventQueue eventQueue, double time, Customer customer) 
+   public Pick(State state, EventQueue eventQueue, Customer customer, double time)
    {
       super(state, eventQueue);
       
-      this.customer = customer; 
+      this.customer = customer;
       this.time = time;
    }
 
+   /**
+    * If there is any free register available the method will create a pay event,
+    * and tell the simulation that the register is now occupied.
+    * If all the check outs is occupied a common queue will be created,
+    * with help of FIFO class.
+    */
    public void doMe() 
    {
       state.update(this);
       
-      state.getStore().addCoin();
-      state.getStore().removeCustomer(customer);
-      state.getStore().unoccupieRegister();
-      
-      if(!state.getStore().getFIFOQueue().isEmpty()) 
+      if(state.getStore().getFreeRegisters() > 0)
       {
-         Customer customerFirstInLine = (Customer) state.getStore().getFIFOQueue().first();
-         
-         state.getStore().getFIFOQueue().removeFirst();
-         
          double payTime = this.time + state.getPayTime().next();
          
-         Pay payEvent = new Pay(this.state, this.eventQueue, payTime, customerFirstInLine);
+         payEvent = new Pay(this.state, this.eventQueue, payTime, customer);
          eventQueue.addEvent(payEvent);
          
          state.getStore().occupieRegister();
       }
+      
+      else 
+      {
+         state.getStore().getFIFOQueue().add(customer);
+         state.getStore().addTotalCustomersInQueue();
+      }
    }
+
    
    public double getTime() 
    {
       return time;
    }
 
+
    public Customer getCustomer()
    {
       return customer;
    }
-   
+
    public String getName()
    {
-      return "Pay";
+      return "Pick";
    }
 }
