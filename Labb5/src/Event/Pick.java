@@ -4,12 +4,10 @@ import State.*;
 
 /**
  * 
- * @author Shahriar 
- *
- *ställer sig i kön
- *
- *först kollar vi om kassorna är lediga
- *om ja: skapar payEvent 
+ * Takes a customer and the time the arrived at the pick event
+ * and either assigns them to a register or puts them into a queue for a register
+ * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
  *
  */
 
@@ -33,24 +31,17 @@ public class Pick extends Event
    {
       state.update(this);
       
-//      System.out.println(state.getStore().getFreeRegisters());
-//      System.out.println(customer);
-//      System.out.println();
-      //om det finns lediga kassor
       if(state.getStore().getFreeRegisters() > 0)
       {
          double payTime = this.time + state.getPayTime().next();
          
          payEvent = new Pay(this.state, this.eventQueue, payTime, customer);
          eventQueue.addEvent(payEvent);
-         
-         //säger att kassan är upptagen
          state.getStore().occupieRegister();
       }
       
       else 
       {
-         //skapa kön kalla på FIFO
          state.getStore().getFIFOQueue().add(customer);
          state.getStore().addTotalCustomersInQueue();
       }
