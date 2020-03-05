@@ -4,15 +4,10 @@ import State.*;
 
 /**
  * 
- * @author Shahriar 
+ * Creates a customer and adds it to the store class.
+ * Also adds a pick event with the customer and puts it in the event queue.
  * 
- * skapa en person 
- * men kolla först om det är för många eller inte 
- * beräkna även antal missade kunder 
- * 
- * jag skapar pick 
- * 
- * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
  *
  */
 
@@ -29,18 +24,23 @@ public class Arrival extends Event
       customer = this.state.getStore().createNewCustomer();
    }
 
+   /**
+    * 
+    * Adds a customer to the store and if the customer can be added
+    * (as in if the store is not full) it chooses a time it will take
+    * for the customer to pick groceries and then adds a pick event to
+    * the event queue.
+    * 
+    */
    public void doMe() 
    {
-      //på alla doMe: updateTime(); ligger i store ska ta emot this.time i updateTime()
       
       state.update(this);
        
       this.state.getStore().addCustomer(customer);
       
-//      System.out.println(customer.getState());
       if(customer.getState() == CustomerState.inStore)
       {
-//         System.out.println(customer);
          double pickTime = this.time + state.getPickTime().next();
          
          pickEvent = new Pick(this.state, this.eventQueue, customer, pickTime);
