@@ -3,6 +3,13 @@ package Event;
 import State.Customer;
 import State.State;
 
+/**
+ * Tells the store when to close and wont let any costumers in the store.
+ * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed. 
+ *
+ */
+
 public class Close extends Event
 {
    private double time;
@@ -26,16 +33,13 @@ public class Close extends Event
       return time;
    }
 
-   @Override
    public Customer getCustomer()
    {
       return null;
    }
 
-   @Override
    public String getName()
    {
-      // TODO Auto-generated method stub
       return "Close";
    }
 }
