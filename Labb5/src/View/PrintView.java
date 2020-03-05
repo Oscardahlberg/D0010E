@@ -11,7 +11,7 @@ import java.util.Observable;
  * also in the beginning and end.
  * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
  *
- */
+ */ 
 
 public class PrintView extends View
 {
