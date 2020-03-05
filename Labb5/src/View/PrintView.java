@@ -6,6 +6,13 @@ import State.*;
 
 import java.util.Observable;
 
+/**
+ * This class prints information every time a event is called
+ * also in the beginning and end.
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
+ *
+ */
+
 public class PrintView extends View
 {
    private State state;
@@ -89,6 +96,14 @@ public class PrintView extends View
               store.getFIFOQueue().size() + "\t" +
               store.getFIFOQueue());
    }
+
+   /**
+    *
+    * Formats a inputed number so that it always has two numbers
+    * after the decimal.
+    * @param time
+    * @return
+    */
 
    private String formatNumber(double time){
 
