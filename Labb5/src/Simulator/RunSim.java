@@ -4,8 +4,16 @@ import State.State;
 import View.PrintView;
 import View.View;
 
+/**
+ * Runs a standard supermarket that will print the events that unfold.
+ * The seed for the random number generator will be a set seed, meaning
+ * the output will be the same each run.
+ * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
+ *
+ */
+
 public class RunSim {
-   
 
    public static void main(String[] args) {
       long seed = 1234;
