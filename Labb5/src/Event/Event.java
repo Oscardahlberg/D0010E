@@ -1,6 +1,14 @@
 package Event;
 import State.*;
 
+/**
+ * 
+ * A abstract class that tells how every event class should behave.
+ * 
+ * @author Jesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
+ *
+ */
+
 abstract public class Event 
 {
    protected State state;
