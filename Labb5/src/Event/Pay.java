@@ -3,12 +3,12 @@ package Event;
 import State.*;
 
 /**
+ * In this event, no new event will be created and the costumer will be removed.
+ * The store will get paid with one coin.
+ * If there is a queue it will be reduced by one.
  * 
- * @author Shahriar Chegini, Oscar Dahlberg, Jesper Frisk, Folke Forshed
+ * @authorJesper Frisk, Shahriar Chegini, Oscar Dahlberg, Folke Forshed.
  * 
- * samla ihop pengar och tar bort en kund
- * måste få tillgång till store coinMade 
- *
  */
 
 public class Pay extends Event
@@ -24,20 +24,14 @@ public class Pay extends Event
       this.time = time;
    }
 
-
    public void doMe() 
    {
-      //add coin och remove costumer och ta bort första i kön
       state.update(this);
+      
       state.getStore().addCoin();
       state.getStore().removeCustomer(customer);
-      
-      //lägger till free kassa igen 
       state.getStore().unoccupieRegister();
       
-//      System.out.println(state.getStore().getFIFOQueue());
-//      System.out.println(customer);
-//      System.out.println(!state.getStore().getFIFOQueue().isEmpty());
       if(!state.getStore().getFIFOQueue().isEmpty()) 
       {
          Customer customerFirstInLine = (Customer) state.getStore().getFIFOQueue().first();
@@ -48,32 +42,23 @@ public class Pay extends Event
          
          Pay payEvent = new Pay(this.state, this.eventQueue, payTime, customerFirstInLine);
          eventQueue.addEvent(payEvent);
-//         System.out.println(eventQueue);
          
-         //säger att kassan är upptagen
          state.getStore().occupieRegister();
       }
-      
    }
-
    
    public double getTime() 
    {
       return time;
    }
 
-
-   @Override
    public Customer getCustomer()
    {
       return customer;
    }
-
-
-   @Override
+   
    public String getName()
    {
-      // TODO Auto-generated method stub
       return "Pay";
    }
 }
